@@ -1,0 +1,21 @@
+<body>
+    <h1>Result</h1>
+    <h2>
+        {% if obj %}
+        {% for i in obj %}
+        <div>
+            <td>{{ i.id }}</td>
+            <td>{{ i.name }}</td>
+            <form action="{% url 'delete' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" name="delete" value="{{ i.id }}">delete</button>
+            </form>
+        </div>
+        {% endfor %}
+        {% else %}
+        <div>
+            <td>ไม่พบ</td>
+        </div>
+        {% endif %}
+    </h2>
+</body>

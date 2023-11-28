@@ -1,0 +1,12 @@
+<h1>delete page</h1>
+
+<form action="{% url 'delete' %}" method="post">
+    {% csrf_token %}
+    <select name="delete" id="" style="width: 10cm;">
+        {% for i in de %}
+        <option value="{{i.id}}">{{ i.id }} {{ i.name }}></option>
+        {% endfor %}
+    </select>
+    <input type="text" name="delete">
+    <button type="submit">ลบ</button>
+</form>
